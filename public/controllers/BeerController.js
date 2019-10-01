@@ -6,7 +6,8 @@ app.controller('BeerController',function($scope,$http,$resource,$location,$route
 		update: { method: 'PUT' }
 	});
 
-	function listaBeers(){
+	function listaBeers()
+	{
 		resource.query(function(retorno){
 			$scope.beers = retorno;
 		});
@@ -14,13 +15,15 @@ app.controller('BeerController',function($scope,$http,$resource,$location,$route
 
 	listaBeers();
 
-	$scope.removeBeer = function(beer){
+	$scope.removeBeer = function(beer)
+	{
 		resource.delete({id: beer._id}, function(status){
 			listaBeers();
 		});
 	}
 
-	$scope.cadastrar = function(beer){
+	$scope.cadastrar = function(beer)
+	{
 		if (beer._id != undefined) {
 			resource.update({id:beer._id},beer,function(){
 				$location.path('/beers');
@@ -32,12 +35,14 @@ app.controller('BeerController',function($scope,$http,$resource,$location,$route
 		};
 	}
 
-	$scope.alterBeer = function(beer){
+	$scope.alterBeer = function(beer)
+	{
 		$location.path('/cadastro/' + beer._id);
 	}
 
 	
-	$scope.loadBeer = function(){
+	$scope.loadBeer = function()
+	{
 		var _id = $routeParams.id;
 
 		if( _id == undefined ){
