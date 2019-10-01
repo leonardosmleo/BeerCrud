@@ -48,5 +48,4 @@ app.controller('BeerController',function($scope,$http,$resource,$location,$route
 			});
 		}
 	}
-
 });
